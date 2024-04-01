@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Void Vision</title>
+        <link rel="stylesheet" type="text/css" href="static/CSS/style.css">
+    </head>
+    <div class="title">
+        <h2>Void Vision</h2>
+    </div>
+
+    <div class="videos-area">
+        <div class="video-container">
+            <img src="static/Images/1.jpg" alt="Video1">
+            <a href="#home">Home</a>
+        </div>
+
+        <div class="video-container">
+            <img src="static/Images/2.jpg" alt="Video1">
+            <a href="#home">fun</a>
+        </div>
+
+        <div class="video-container">
+            <img src="static/Images/3.jpg" alt="Video1">
+            <a href="#home">great</a>
+        </div>
+
+        <div class="video-container">
+            <img src="static/Images/4.jpg" alt="Video1">
+            <a href="#home">cats</a>
+        </div>
+        
+        <div class="video-container">
+            <img src="static/Images/5.jpg" alt="Video1">
+            <a href="#home">cool</a>
+        </div>
+    </div>
+
+    <form id="upload_form" enctype="multipart/form-data">
+        <input type="file" name="fileupload" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <form method="POST" action="/file_upload" enctype="multipart/form-data">
+        <input type="file" name="fileupload" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <div id="uploadStatus"></div>
+
+    <script src="/static/JS/upload.js"></script>
+</html>

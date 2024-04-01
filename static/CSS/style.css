@@ -1,0 +1,40 @@
+.title {
+    display: flex;
+    font-size: 30px;
+}
+
+.title h2 {
+    text-align: left;
+    margin: 0px;
+}
+
+.videos-area {
+    display: flex;
+    justify-content: center; /* Centers flex items horizontally */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 80px; /* Adjusts space between video containers */
+}
+
+/* Navbar container */
+.video-container {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+}
+
+.video-container img {
+    height: 100px;
+    width: auto;
+}
+
+/* Navbar links */
+.video-container a {
+    color: white;
+    padding: 20px 0px 30px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.navbar a:hover {
+    color: blue;
+}
