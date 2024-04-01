@@ -1,1 +1,0 @@
-tokio_util::io::StreamReader<futures::stream::MapErr<futures::stream::MapOk<axum::extract::multipart::Field<'_>, {closure@src/main.rs:105:41: 105:44}>, {closure@src/main.rs:105:65: 105:68}>, std::vec::Vec<u8>>
