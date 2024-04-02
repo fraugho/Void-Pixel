@@ -87,3 +87,7 @@ h1 {
 h2 {
     @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
 }
+
+.top-bar {
+    @apply flex justify-between absolute top-0 left-0 m-4;
+}
