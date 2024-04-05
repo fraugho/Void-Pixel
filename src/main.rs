@@ -14,6 +14,9 @@ use std::fs::read_to_string;
 use futures::TryStreamExt as _;
 use tokio::io::AsyncWriteExt;
 
+mod structs;
+use structs::*;
+
 #[tokio::main]
 async fn main() {
     // initialize tracing
@@ -51,6 +54,16 @@ async fn main_page() -> Result<Html<String>, (StatusCode, String)> {
             Err((StatusCode::INTERNAL_SERVER_ERROR, "Internal Server Error".into()))
         }
     }
+}
+
+
+async fn login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
+    (StatusCode::OK, "wuba wuba dub dub")
+}
+
+
+async fn create_login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
+    (StatusCode::OK, "wuba wuba dub dub")
 }
 
 async fn video_page() -> Result<Html<String>, (StatusCode, String)> {
@@ -112,3 +125,5 @@ async fn file_upload(mut multipart: Multipart) {
             .expect("Failed to write to file!");
     }
 }
+
+
