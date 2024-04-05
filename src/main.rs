@@ -8,6 +8,7 @@ use axum::{
 use tokio::fs::File;
 use std::process::Command;
 use serde::{Deserialize, Serialize};
+use tower_http::cors::CorsLayer;
 use tower_http::services::ServeDir;
 use std::path::Path;
 use std::fs::read_to_string;
@@ -28,12 +29,15 @@ async fn main() {
         .route("/", get(main_page))
         .route("/video", get(video_page))
         .route("/file_upload", post(file_upload))
+        .route("/login", post(login))
+        .route("/create_login", post(create_login))
         .nest_service("/static", get_service(ServeDir::new("static")).handle_error(|error| async move {
             (
                 axum::http::StatusCode::INTERNAL_SERVER_ERROR,
                 format!("Unhandled internal error: {}", error),
             )
-        }));
+        }))
+    .layer(CorsLayer::permissive());
 
     // run our app with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind("127.0.0.1:8080").await.unwrap();
@@ -63,7 +67,7 @@ async fn login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
 
 
 async fn create_login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
-    (StatusCode::OK, "wuba wuba dub dub")
+    (StatusCode::OK, "Doh!!")
 }
 
 async fn video_page() -> Result<Html<String>, (StatusCode, String)> {
