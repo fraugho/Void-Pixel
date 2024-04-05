@@ -18,7 +18,7 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import "@/app/globals.css";
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from "react";
 
 export function Login() {
     const [responseMessage, setResponseMessage] = useState('');
@@ -73,7 +73,7 @@ export function Login() {
                     <CardHeader>
                         <CardTitle className="text-center">Login</CardTitle>
                         <CardDescription className="text-center">
-                            Make changes to your account here. Click save when you're done.
+                            Login To Your Account
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
@@ -97,7 +97,7 @@ export function Login() {
                     <CardHeader>
                         <CardTitle className="text-center">Create Login</CardTitle>
                         <CardDescription className="text-center">
-                            Change your password here. After saving, you'll be logged out.
+                            Create An Account
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
