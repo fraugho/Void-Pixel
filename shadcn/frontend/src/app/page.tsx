@@ -1,12 +1,13 @@
+import Image from "next/image"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import VideoBox from "./video"
 import "./globals.css";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ModeToggle } from "@/components/mode-toggle"
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,9 +32,103 @@ export default function Home() {
                     <Button className="ml-2 px-3 py-2">Search</Button>
                 </div>
                 <div className="text-right">Void Pixel</div>
+                <div className="flex ml-30">
+                    <ModeToggle />
+                </div>
             </div>
-            <div className="flex ml-30">
-                <ModeToggle />
+
+            <div id="video_container"className="flex flex-wrap m-3 mt-10 justify-center">
+
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
+                <VideoBox title="Video 1" src="http://127.0.0.1:8080/static/Images/1.jpg"/>
             </div>
         </body>
     );
