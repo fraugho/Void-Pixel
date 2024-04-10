@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Skeleton } from "@/components/ui/skeleton";
 
 export type VideoBoxProp = {
@@ -12,6 +12,10 @@ export type VideoBoxProp = {
 
 const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
     const [imageLoaded, setImageLoaded] = useState(false);
+
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
 
     return (
         <div className='m-3'>
@@ -24,8 +28,7 @@ const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
                     </div>
                 </div>
             )}
-            {/* Ensure this div is always rendered but visibility toggled */}
-            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex flex-col space-y-3'>
+            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex-col space-y-3'>
                 <div className="h-[125px] w-[250px] rounded-xl overflow-hidden">
                     <Image
                         src={src}
@@ -34,7 +37,8 @@ const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
                         alt={title}
                         objectFit="cover"
                         className="rounded-xl"
-                        onLoadingComplete={() => setImageLoaded(true)}
+                        onLoadingComplete={handleImageLoad}
+                        priority // Important for above-the-fold images
                     />
                 </div>
                 <div className="space-y-2">
