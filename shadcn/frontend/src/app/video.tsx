@@ -13,6 +13,10 @@ export type VideoBoxProp = {
 const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
     const [imageLoaded, setImageLoaded] = useState(false);
 
+    const handle_image_load = () => {
+        setImageLoaded(true);
+    };
+
     return (
         <div className='m-3'>
             {!imageLoaded && (
@@ -24,8 +28,7 @@ const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
                     </div>
                 </div>
             )}
-            {/* Ensure this div is always rendered but visibility toggled */}
-            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex flex-col space-y-3'>
+            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex-col space-y-3'>
                 <div className="h-[125px] w-[250px] rounded-xl overflow-hidden">
                     <Image
                         src={src}
@@ -34,7 +37,8 @@ const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
                         alt={title}
                         objectFit="cover"
                         className="rounded-xl"
-                        onLoadingComplete={() => setImageLoaded(true)}
+                        onLoadingComplete={handle_image_load}
+                        priority // Important for above-the-fold images
                     />
                 </div>
                 <div className="space-y-2">

@@ -1,20 +1,28 @@
 "use client"
 
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import { useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useRouter } from 'next/navigation'
 
-export type VideoBoxProp = {
+export type Video = {
     title: string,
     creator: string,
-    src: string,
+    url: string,
+    thumbnail: string,
 };
 
-const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
+const VideoBox = ({ title, creator, thumbnail, url }: Video) => {
     const [imageLoaded, setImageLoaded] = useState(false);
 
-    const handleImageLoad = () => {
+    const handle_image_load = () => {
         setImageLoaded(true);
+    };
+
+    const router = useRouter();
+
+    const handle_click = () => {
+        router.push(url)
     };
 
     return (
@@ -28,16 +36,16 @@ const VideoBox = ({ title, creator, src }: VideoBoxProp) => {
                     </div>
                 </div>
             )}
-            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex-col space-y-3'>
+            <div style={{ display: imageLoaded ? 'block' : 'none' }} className='flex-col space-y-3 rounded-xl hover:outline hover:outline-offset-[10px] hover:outline-white-5' onClick={handle_click}>
                 <div className="h-[125px] w-[250px] rounded-xl overflow-hidden">
                     <Image
-                        src={src}
+                        src={thumbnail}
                         width={250}
                         height={125}
                         alt={title}
                         objectFit="cover"
                         className="rounded-xl"
-                        onLoadingComplete={handleImageLoad}
+                        onLoadingComplete={handle_image_load}
                         priority // Important for above-the-fold images
                     />
                 </div>

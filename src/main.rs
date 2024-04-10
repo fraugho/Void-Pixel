@@ -14,6 +14,8 @@ use std::process::Command;
 
 use serde::{Deserialize, Serialize};
 
+use rand::prelude::*;
+
 use names::{Generator, Name};
 
 mod structs;
@@ -79,12 +81,12 @@ async fn video_page() -> Result<Html<String>, (StatusCode, String)> {
 async fn video_recommendation() -> impl IntoResponse{
     let mut generator = Generator::with_naming(Name::Numbered);
     let mut videos = vec![];
-    for i in 0..30{
+    for _ in 0..30{
         videos.push(Video{
             url: "/watch?bird_beach".to_string(),
-            thumbnail: format!("/static/thumbnails/{}.jpg", i%5 + 1),
+            thumbnail: format!("/static/thumbnails/{}.jpg", rand::random::<u8>()%5 + 1),
             creator: generator.next().unwrap().replace('-', ""),
-            title: format!("Entropy {}", i),
+            title: format!("Entropy {}", rand::random::<u8>()),
         })
     }
 
