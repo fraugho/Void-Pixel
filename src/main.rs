@@ -1,19 +1,20 @@
 use axum::{
-    routing::{get, post, get_service},
-    http::StatusCode,
-    response::*,
-    Json, Router,
-    extract::Multipart,
+    extract::{multipart, Multipart}, http::StatusCode,
+    response::*, routing::{get, get_service, post},
+    Json, Router
 };
+
 use tokio::fs::File;
-use std::process::Command;
-use serde::{Deserialize, Serialize};
+use tokio::io::AsyncWriteExt;
 use tower_http::cors::CorsLayer;
 use tower_http::services::ServeDir;
-use std::path::Path;
+
 use std::fs::read_to_string;
-use futures::TryStreamExt as _;
-use tokio::io::AsyncWriteExt;
+use std::process::Command;
+
+use serde::{Deserialize, Serialize};
+
+use names::{Generator, Name};
 
 mod structs;
 use structs::*;
@@ -31,6 +32,7 @@ async fn main() {
         .route("/file_upload", post(file_upload))
         .route("/login", post(login))
         .route("/create_login", post(create_login))
+        .route("/video_recommendations", get(video_recommendation))
         .nest_service("/static", get_service(ServeDir::new("static")).handle_error(|error| async move {
             (
                 axum::http::StatusCode::INTERNAL_SERVER_ERROR,
@@ -44,11 +46,6 @@ async fn main() {
     axum::serve(listener, app).await.unwrap();
 }
 
-fn routes_static() -> Router {
-    Router::new()
-        .nest_service("/", get_service(ServeDir::new("./")))
-}
-
 async fn main_page() -> Result<Html<String>, (StatusCode, String)> {
     let path = "static/HTML/home_page.html";
     match read_to_string(path) {
@@ -60,11 +57,9 @@ async fn main_page() -> Result<Html<String>, (StatusCode, String)> {
     }
 }
 
-
 async fn login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
     (StatusCode::OK, "wuba wuba dub dub")
 }
-
 
 async fn create_login(Form(login_form): Form<LoginForm>) -> impl IntoResponse {
     (StatusCode::OK, "Doh!!")
@@ -79,6 +74,21 @@ async fn video_page() -> Result<Html<String>, (StatusCode, String)> {
             Err((StatusCode::INTERNAL_SERVER_ERROR, "Internal Server Error".into()))
         }
     }
+}
+
+async fn video_recommendation() -> impl IntoResponse{
+    let mut generator = Generator::with_naming(Name::Numbered);
+    let mut videos = vec![];
+    for i in 0..30{
+        videos.push(Video{
+            url: "/watch?bird_beach".to_string(),
+            thumbnail: format!("/static/thumbnails/{}.jpg", i%5 + 1),
+            creator: generator.next().unwrap().replace('-', ""),
+            title: format!("Entropy {}", i),
+        })
+    }
+
+    Json(videos)
 }
 
 async fn convert_to_hls(input_path: &str, output_dir: &str) -> std::io::Result<()> {
@@ -103,17 +113,19 @@ async fn convert_to_hls(input_path: &str, output_dir: &str) -> std::io::Result<(
 
 async fn file_upload(mut multipart: Multipart) {
     while let Some(field) = multipart
-        .next_field().await.expect("Failed to get next field!")
+        .next_field()
+        .await
+        .expect("Failed to get next field!")
     {
+
         let file_name = match field.file_name() {
             Some(file_name) => file_name,
             None => continue,
         };
-        
 
         // Create a path for the soon-to-be file
         let file_path = format!("static/uploads/{}", file_name);
-        
+
         // Unwrap the incoming bytes
         let data = field.bytes()
             .await.unwrap();
@@ -129,5 +141,3 @@ async fn file_upload(mut multipart: Multipart) {
             .expect("Failed to write to file!");
     }
 }
-
-
