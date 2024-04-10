@@ -1,7 +1,7 @@
 "use client"
 
-import VideoBox from "./video3"
-import  { Video } from "./video3";
+import VideoBox from "./video"
+import  { Video } from "./video";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -35,7 +35,7 @@ export default function Home() {
                     <Button className="ml-2 px-3 py-2">Search</Button>
                 </div>
                 <div className="text-right">Void Pixel</div>
-                <div className="flex ml-30">
+                <div className="p-3">
                     <ModeToggle />
                 </div>
             </div>

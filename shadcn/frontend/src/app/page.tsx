@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import VideoBox from "./video3"
-import  { VideoBoxProp } from "./video3";
+import VideoBox from "./video"
+import  { VideoBoxProp } from "./video";
 import "./globals.css";
 import Image from "next/image"
 
@@ -23,7 +23,7 @@ export default function Home() {
         videos.push({
             title: "Example Video Title",
             creator: "Example Creator Name",
-            src: "/static/Images/1.jpg",
+            src: "/static/images/1.jpg",
         });
     }
     return (
