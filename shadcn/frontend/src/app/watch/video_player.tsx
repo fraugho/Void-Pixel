@@ -44,7 +44,7 @@ const HLSVideoPlayer: React.FC<HLSVideoPlayerProps> = ({ src }) => {
         };
     }, [src]);
 
-    return <video ref={videoRef} controls className='w-3/5' />;
+    return <video ref={videoRef} controls className='w-full h-auto aspect-[16/9]' />;
 };
 
 export default HLSVideoPlayer;
