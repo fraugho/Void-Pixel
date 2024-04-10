@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import VideoBox from "./video"
-import  { VideoBoxProp } from "./video";
+import VideoBox from "./video3"
+import  { VideoBoxProp } from "./video3";
 import "./globals.css";
+import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -22,7 +23,7 @@ export default function Home() {
         videos.push({
             title: "Example Video Title",
             creator: "Example Creator Name",
-            src: "http://127.0.0.1:8080/static/Images/1.jpg",
+            src: "/static/Images/1.jpg",
         });
     }
     return (
@@ -50,6 +51,7 @@ export default function Home() {
                     <VideoBox title={video.title} creator={video.creator} src={video.src}/>
                 ))}
             </div>
+
         </body>
     );
 }
